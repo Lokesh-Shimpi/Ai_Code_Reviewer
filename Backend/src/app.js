@@ -1,16 +1,11 @@
 const express = require('express');
 const aiRoutes = require('./routes/ai.routes')
 const cors = require('cors')
-require('dotenv').config();
 const app = express()
 
-const allowedOrigins = [
-  process.env.FRONTEND_URL
-];
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
+app.use(cors())
+app.use(cors({ origin: 'https://ai-code-reviewer-lemon.vercel.app/' })); 
+
 
 app.use(express.json())
 
